@@ -1,3 +1,9 @@
-<h2 id='title'>Welcome to Ember.js</h2>
-
-{{outlet}}
+<header>
+	{{#link-to "sniffies"}}Sniffies{{/link-to}}
+	{{#link-to "previous"}}Previous Sniffies{{/link-to}}
+	{{#link-to "settings"}}Settings{{/link-to}}	
+	{{#link-to "new"}}Add{{/link-to}}	
+</header>
+<section>
+	{{outlet}}
+</section>

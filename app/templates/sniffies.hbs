@@ -1,14 +1,9 @@
-<h2>Sniffies</h2>
-
 {{#each}}
 	{{what}} @ {{where}}<br>
 	{{when}}
 	<ul>
-	{{log invitations}}
 	{{#each invitations}}
-		<li>{{user.handle}}</li>
+		<li>{{user.handle}} ({{answer}})</li>
 	{{/each}}
 	</ul>
 {{/each}}
-
-{{outlet}}

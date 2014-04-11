@@ -1,8 +1,6 @@
-var User = DS.Model.extend({
-	handle: DS.attr(),
-	name: DS.attr(),
+export default DS.Model.extend({
+	handle: DS.attr('string'),
+	name: DS.attr('string'),
 	invitations: DS.hasMany('invitation'),
 	hostedSniffies: DS.hasMany('sniffy')
 });
-
-export default User;

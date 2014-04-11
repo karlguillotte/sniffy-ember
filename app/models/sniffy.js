@@ -4,12 +4,7 @@ export default DS.Model.extend({
 	when: DS.attr('date'),
 	invitations: DS.hasMany('invitation'),
 	host: DS.belongsTo('user'),
-	createdOn: DS.attr('date', {
-		defaultValue: function() {
-			return new Date();
-		}
-	}),
 	isActive: function() {
 		return Date.now() < this.get('when').getTime();
-	}.property('when')
+	}.property('when').volatile()
 });

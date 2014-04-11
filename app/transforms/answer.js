@@ -1,4 +1,4 @@
-var Invitation = DS.Model.extend({
+var Answer = DS.Model.extend({
 	answer: DS.attr('string', {
 		defaultValue: function() {
 			return Invitation.ANSWERS['ignore'];
@@ -8,7 +8,7 @@ var Invitation = DS.Model.extend({
 	sniffy: DS.belongsTo('sniffy')
 });
 
-Invitation.reopenClass({
+Answer.reopenClass({
 	ANSWERS: {
 		accept: {
 			id: 'accept',
@@ -25,4 +25,4 @@ Invitation.reopenClass({
 	}
 });
 
-export default Invitation;
+export default Answer;

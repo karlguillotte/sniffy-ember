@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
 			who: []
 		});
 	}.on('init'),
-	// TODO I think we can use Ember.computed.collect
 	properties: function() {
 		return this.getProperties('what', 'where', 'when', 'who');
 	}.property('what', 'where', 'when', 'who.[]')

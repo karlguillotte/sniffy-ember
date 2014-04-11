@@ -8,7 +8,7 @@ var App = Ember.Application.extend({
   LOG_TRANSITIONS: true,
   LOG_TRANSITIONS_INTERNAL: true,
   LOG_VIEW_LOOKUPS: true,
-  modulePrefix: 'sniffy', // TODO: loaded via config
+  modulePrefix: 'sniffy',
   Resolver: Resolver
 });
 

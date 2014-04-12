@@ -1,28 +1,38 @@
-var Answer = DS.Model.extend({
-	answer: DS.attr('string', {
-		defaultValue: function() {
-			return Invitation.ANSWERS['ignore'];
-		}
-	}),
-	user: DS.belongsTo('user'),
-	sniffy: DS.belongsTo('sniffy')
+var AnswerTransform = DS.Transform.extend({
+  deserialize: function(serialized) {
+  	serialized = serialized || 'ignore';
+
+    return Answer[serialized.toUpperCase()];
+  },
+  serialize: function(deserialized) {
+    return deserialized.name;
+  }
+});
+
+
+var Answer = Ember.Object.extend({
+	name: Ember.required(String),
+	text: function() {
+		return this.get('name').loc();
+	}.property('name').readOnly()
 });
 
 Answer.reopenClass({
-	ANSWERS: {
-		accept: {
-			id: 'accept',
-			text: 'accept'.loc()
-		}
-		decline: {
-			id: 'decline',
-			text: 'decline'.loc()
-		}
-		ignore: {
-			id: 'ignore',
-			text: 'ignore'.loc()
-		}
-	}
+	ACCEPT: Answer.create({
+		name: function() {
+			return 'accept';
+		}.property().readOnly()
+	}),
+	DECLINE: Answer.create({
+		name: function() {
+			return 'decline';
+		}.property().readOnly()
+	}),
+	IGNORE: Answer.create({
+		name: function() {
+			return 'ignore';
+		}.property().readOnly()
+	})
 });
 
-export default Answer;
+export default AnswerTransform;

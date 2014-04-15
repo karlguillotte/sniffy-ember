@@ -1,3 +1,7 @@
+import AnswerTransform from '../transforms/answer';
+
+var answerTransform = AnswerTransform.create();
+
 export default Ember.Route.extend({
 	model: function() {
 		this.store.push('user', {
@@ -23,7 +27,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('invitation', {
 			id: 1,
-			answer: 'accept',
+			answer: answerTransform.deserialize('accept'),
 			sniffy: 1,
 			user: 2
 		});
@@ -34,7 +38,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('invitation', {
 			id: 3,
-			answer: 'decline',
+			answer: answerTransform.deserialize('decline'),
 			sniffy: 1,
 			user: 4
 		});

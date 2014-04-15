@@ -1,4 +1,4 @@
-import Answer from '../utils/answer';
+import Answer from '../enums/answer';
 
 export default DS.Transform.extend({
   deserialize: function(serialized) {
@@ -7,6 +7,6 @@ export default DS.Transform.extend({
     return Answer[serialized.toUpperCase()];
   },
   serialize: function(deserialized) {
-    return deserialized.name;
+    return deserialized.name.toLowerCase();
   }
 });

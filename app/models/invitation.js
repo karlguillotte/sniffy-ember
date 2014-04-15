@@ -1,10 +1,8 @@
-import AnswerTransform from '../transforms/answer';
-
-var defaultAnswer = AnswerTransform.create().deserialize();
+import Answer from '../enums/answer';
 
 var Invitation = DS.Model.extend({
 	answer: DS.attr('answer', {
-		defaultValue: defaultAnswer
+		defaultValue: Answer.IGNORE
 	}),
 	user: DS.belongsTo('user'),
 	sniffy: DS.belongsTo('sniffy')

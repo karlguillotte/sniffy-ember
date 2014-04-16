@@ -44,7 +44,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('sniffy', {
 			id: 1,
-			when: new Date(2014, 3, 8, 19),
+			when: new Date(2014, 3, 15, 19),
 			where: 'Six Acres',
 			what: 'beer',
 			host: 1,
@@ -52,7 +52,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('sniffy', {
 			id: 2,
-			when: new Date(2014, 3, 15, 19),
+			when: new Date(2014, 3, 22, 19),
 			where: '33 Acres',
 			what: 'Beer',
 			host: 1,

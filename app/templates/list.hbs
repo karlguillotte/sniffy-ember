@@ -1,5 +1,5 @@
-<ul>
-{{#each}}
-	<li>{{this}}</li>
+<div class="list-group">
+{{#each string in model}}
+	<a href="#" {{action "select" string}} class="list-group-item">{{string}}</a>
 {{/each}}
-</ul>
+</div>

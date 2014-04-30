@@ -59,7 +59,10 @@ module.exports = function (broccoli) {
     'ic-ajax/dist/named-amd/main.js',
     'ember-data.js',
     'ember-resolver.js',
-    'ember-shim.js'
+    'ember-shim.js',
+    'firebase.js',
+    'emberfire/dist/emberfire.js',
+    'momentjs/moment.js'
   ];
 
   var applicationJs = preprocessJs(appAndDependencies, '/', prefix);

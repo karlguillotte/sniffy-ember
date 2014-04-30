@@ -1,3 +1,5 @@
+/* global moment */
+
 import AnswerTransform from '../transforms/answer';
 
 var answerTransform = AnswerTransform.create();
@@ -44,7 +46,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('sniffy', {
 			id: 1,
-			when: new Date(2014, 3, 15, 19),
+			when: moment().subtract(4, 'd').toDate(),
 			where: 'Six Acres',
 			what: 'beer',
 			host: 1,
@@ -52,7 +54,7 @@ export default Ember.Route.extend({
 		});
 		this.store.push('sniffy', {
 			id: 2,
-			when: new Date(2014, 3, 22, 19),
+			when: moment().add(4, 'd').toDate(),
 			where: '33 Acres',
 			what: 'Beer',
 			host: 1,

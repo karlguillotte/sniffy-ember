@@ -1,6 +1,9 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees  = require('broccoli-merge-trees');
+
 
 var app = new EmberApp({
   name: require('./package.json').name,
@@ -38,4 +41,14 @@ var app = new EmberApp({
   getEnvJSON: require('./config/environment')
 });
 
-module.exports = app.toTree();
+var bootstrap = pickFiles('vendor', {
+  srcDir: '/bootstrap/dist/css',
+  files: [
+    'bootstrap.css'
+  ],
+  destDir: '/assets/'
+});
+
+module.exports = mergeTrees([app.toTree(), bootstrap], {
+  overwrite: true
+});

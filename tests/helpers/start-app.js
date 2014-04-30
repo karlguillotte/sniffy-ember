@@ -1,6 +1,7 @@
+var Application = require('sniffy/app')['default'];
 var Router = require('sniffy/router')['default'];
 
-function startApp(attrs) {
+export default function startApp(attrs) {
   var App;
 
   var attributes = Ember.merge({
@@ -15,7 +16,7 @@ function startApp(attrs) {
   });
 
   Ember.run(function(){
-    App = require('sniffy/main')['default']('sniffy', attributes);
+    App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
   });
@@ -24,5 +25,3 @@ function startApp(attrs) {
 
   return App;
 }
-
-export default startApp;

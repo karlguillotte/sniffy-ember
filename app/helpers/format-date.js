@@ -1,3 +1,5 @@
+/* global moment */
+
 var get = Ember.get;
 
 export default Ember.Handlebars.makeBoundHelper(function(date) {

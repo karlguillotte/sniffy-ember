@@ -3,7 +3,7 @@ export default Ember.ArrayController.extend({
 	actions: {
 		select: function(what) {
 			this.set('controllers.new.what', what);
-			this.transitionTo('new');
+			this.transitionToRoute('new');
 		}
 	}	
 });

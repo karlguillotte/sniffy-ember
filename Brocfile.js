@@ -18,8 +18,8 @@ var app = new EmberApp({
     'ember-resolver.js',
     'ember-load-initializers.js',
     'firebase.js',
-    'emberfire/dist/emberfire.js',
-    'momentjs/moment.js'
+    'emberfire.js',
+    'moment.js'
   ],
 
   // AKA whitelisted modules

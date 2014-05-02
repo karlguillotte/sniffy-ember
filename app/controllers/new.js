@@ -34,7 +34,8 @@ export default Ember.Controller.extend({
 	},
 	actions: {
 		create: function() {
-			this.create();
+			var sniffy = this.create();
+			sniffy.save();
 			this.reset();
 			this.transitionToRoute('sniffies');
 		}

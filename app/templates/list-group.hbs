@@ -1,0 +1,8 @@
+{{#list-group classNames="list-group" selectedItems=invitees}}
+	{{#each value in model}}
+		{{#list-group-item item=value toggle="toggle"}}
+			<a {{bind-attr class=":list-group-item view.isSelected:active"}}>{{value}}</a>
+		{{/list-group-item}}
+	{{/each}}
+{{/list-group}}
+{{input value=newItemValue enter="createItem"}}

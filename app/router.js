@@ -3,12 +3,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.route('sniffies');
-	this.route('previous', { path: 'sniffies/previous' });
-	this.route('new', { path: 'sniffies/new' });
-	this.route('who', { path: 'sniffies/new/who' });
-	this.route('what', { path: 'sniffies/new/what' });
-	this.route('where', { path: 'sniffies/new/where' });
+	this.resource('sniffies', function() {
+		this.resource('new', function() {
+			this.route('who');
+			this.route('what');
+			this.route('where');		
+		});		
+		this.route('previous');
+	});
 	this.route('settings');
 });
 

@@ -1,7 +1,9 @@
 export default Ember.ArrayController.extend({
-	invitees: [],
+	needs: ['new'],
+	invitees: Ember.computed.alias('controllers.new.invitees'),
+	newItemValue: null,
 	actions: {
-		toggle: Ember.K,
+		toggle: Ember.K,  // TODO Could be removed > because using a common template
 		createItem: function() {
 			var value = this.get('newItemValue');
 			var user = this.store.createRecord('user', {
@@ -11,7 +13,7 @@ export default Ember.ArrayController.extend({
 
 			user.save().then(function() {
 				this.set('newItemValue', null);
-				this.invitees.pushObject(user);
+				this.get('invitees').pushObject(user);
 			}.bind(this));
 
 		}

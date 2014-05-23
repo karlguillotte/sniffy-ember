@@ -2,7 +2,7 @@
 	<li>{{#link-to "new.what"}}What::{{what}}{{/link-to}}</li>
 	<li>{{#link-to "new.where"}}Where::{{where}}{{/link-to}}</li>
 	<li>{{input type="date" value=when placeholder="When?"}}::{{format-date when}}</li>
-	<li>{{#link-to "new.who"}}Who::({{invitations.length}})
+	<li>{{#link-to "new.who"}}Who::({{invitees.length}})
 		<ul>
 			{{#each invitee in invitees}}
 			<li>{{invitee}}</li>

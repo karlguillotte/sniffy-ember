@@ -1,9 +1,15 @@
+/* global moment */
+
 export default Ember.ObjectController.extend({
+	needs: ['new'],
+	invitees: Ember.computed.alias('controllers.new.invitees'),
 	when: function(key, value) {
 		if (arguments.length > 1) {
-			this.set('model.when', moment(value, 'YYYY-MM-DD').toDate());
+			var when = moment(value, 'YYYY-MM-DD').toDate();
+			this.set('model.when', when);
 		} else {
-			value = moment(this.get('model.when')).format('YYYY-MM-DD');
+			var when = this.get('model.when');
+			value = moment(when).format('YYYY-MM-DD');
 		}
 
 		return value;

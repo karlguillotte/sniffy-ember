@@ -41,7 +41,6 @@ export default Ember.Route.extend({
 	},
 	actions: {
 		create: function() {
-			var sniffy = this.controller.get('model');
 			var save = function() {
 				return this.save();
 			}.bind(this);

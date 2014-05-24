@@ -1,3 +1,5 @@
+/* global require */
+
 var Application = require('sniffy/app')['default'];
 var Router = require('sniffy/router')['default'];
 

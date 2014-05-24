@@ -9,13 +9,15 @@
 
     {{BASE_TAG}}
 
-    <link rel="stylesheet" href="assets/app.css">
-    <link rel="stylesheet" href="assets/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/sniffy.css">
   </head>
   <body>
-    <script src="assets/app.js"></script>
     <script>
       window.ENV = {{ENV}};
+    </script>
+    <script src="assets/sniffy.js"></script>
+    <script>
       window.Sniffy = require('sniffy/app')['default'].create(ENV.APP);
     </script>
   </body>

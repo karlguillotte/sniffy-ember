@@ -1,6 +1,6 @@
 export default {
 	name: 'form',
-	initialize: function(container, application) {
+	initialize: function() {
 		Ember.EasyForm.Config.registerWrapper('twitter-bootstrap', {
 		  // Define the custom template
 		  inputTemplate: 'bootstrap-input',

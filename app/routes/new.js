@@ -1,3 +1,5 @@
+/* global confirm */
+
 export default Ember.Route.extend({
 	setupController: function(controller, model) {
 		this._super(controller, model);
@@ -6,16 +8,14 @@ export default Ember.Route.extend({
 	},
 	model: function() {
 		return this.store.createRecord('sniffy', {
-			when: new Date(),
-			host: this.get('session.user')
+			host: this.store.get('session.user')
 		});
 	},
 	deactivate: function() {
 		var model = this.controller.get('model');
 		
-		if (model.get('isNew') && !model.get('isSaving') && confirm('Are you sure?')) {
+		if (model.get('isNew')) {
 			model.rollback();
-			model.deleteRecord();
 		}
 	},
 	createInvitation: function(invitee) {
@@ -28,13 +28,12 @@ export default Ember.Route.extend({
 		var sniffy = this.controller.get('model');
 		var invitees = this.controller.get('invitees');
 		var invitations = invitees.map(this.createInvitation, this);
-
-		sniffy.get('invitations').clear().pushObjects(invitations);
-		
 		var saveSniffy = function() {
 			return sniffy.save();
 		};
 		var saveInvitations = invitations.invoke('save');
+
+		sniffy.get('invitations').clear().pushObjects(invitations);
 		
 		// TODO Not nice, there might be a better way to save
 		return Ember.RSVP.all(saveInvitations).then(saveSniffy);

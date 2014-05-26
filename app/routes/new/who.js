@@ -1,5 +1,4 @@
 export default Ember.Route.extend({
-	templateName: 'list-group',
 	model: function() {
 		var user = this.get('session.user');
 		

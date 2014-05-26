@@ -1,0 +1,10 @@
+{{#list-group classNames="list-group" selectedItems=invitees}}
+	{{#each user in model}}
+		{{#list-group-item item=user}}
+			<a {{bind-attr class=":list-group-item view.isSelected:active"}}>{{user.name}}</a>
+		{{/list-group-item}}
+	{{/each}}
+{{/list-group}}
+{{#form-for controller}}
+	{{input newUserName}}
+{{/form-for}}

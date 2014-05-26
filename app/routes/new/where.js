@@ -11,7 +11,7 @@ export default Ember.Route.extend({
 		toggle: function(where) {
 			this.setValue(where);
 		},
-		createItem: function() {
+		submit: function() {
 			var controller = this.controller;
 			var value = controller.get('newItemValue');
 

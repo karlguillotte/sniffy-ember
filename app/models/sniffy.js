@@ -1,13 +1,13 @@
 export default DS.Model.extend({
 	what: DS.attr('string'),
 	where: DS.attr('string'),
-	when: DS.attr('date'),
-	invitations: DS.hasMany('invitation'),
-	host: DS.belongsTo('user', {
+	when: DS.attr('date', {
 		defaultValue: function() {
-			return null;
+			return new Date();
 		}
 	}),
+	invitations: DS.hasMany('invitation'),
+	host: DS.belongsTo('user'),
 	invitees: function() {
 		return this.get('invitations').getEach('user');
 	}.property('invitations.@each.user'),

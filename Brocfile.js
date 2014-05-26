@@ -19,6 +19,7 @@ app.import('vendor/firebase/firebase.js');
 app.import('vendor/emberfire/dist/emberfire.js');
 app.import('vendor/momentjs/moment.js');
 app.import('vendor/ember-validations/index.js');
+app.import('vendor/ember-easyForm/index.js');
 app.import('vendor/bootstrap/dist/css/bootstrap.css');
 
 // If the library that you are including contains AMD or ES6 modules that

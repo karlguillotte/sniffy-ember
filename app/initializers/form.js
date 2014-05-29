@@ -1,20 +1,17 @@
 export default {
-	name: 'form',
+	name: 'ember-easyForm',
 	initialize: function() {
-		Ember.EasyForm.Config.registerWrapper('twitter-bootstrap', {
-		  // Define the custom template
-		  inputTemplate: 'bootstrap-input',
-
-		  // Define a custom config used by the template
-		  controlsWrapperClass: 'form-group',
-
-		  // Define the classes for the form, label, error...
-		  formClass: '',
-		  fieldErrorClass: 'error',
-		  errorClass: 'help-inline',
-		  hintClass: 'help-block',
-		  labelClass: 'control-label',
-		  inputClass: 'form-group'
+		
+		Ember.TextSupport.reopen({
+		    classNames: ['form-control']
 		});
+		
+		// Ember.EasyForm.Config.registerWrapper('default', {
+		//   fieldErrorClass: 'error',
+		//   errorClass: 'help-inline',
+		//   hintClass: 'help-block',
+		//   labelClass: 'control-label hidden',
+		//   inputClass: 'form-group'
+		// });
 	}
 };

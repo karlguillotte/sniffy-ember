@@ -1,10 +1,10 @@
-{{#list-group classNames="list-group" selectedItems=invitees}}
-	{{#each user in model}}
-		{{#list-group-item item=user}}
-			<a {{bind-attr class=":list-group-item view.isSelected:active"}}>{{user.name}}</a>
-		{{/list-group-item}}
+<ul class="list-group">
+	{{#each}}
+		<a href="#" {{action toggle this}} {{bind-attr class=":list-group-item isSelected:active"}}>
+			{{name}}
+		</a>
 	{{/each}}
-{{/list-group}}
-{{#form-for controller}}
-	{{input newUserName}}
-{{/form-for}}
+	<li class="list-group-item">
+		{{outlet}}
+	</li>
+</ul>

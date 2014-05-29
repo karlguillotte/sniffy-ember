@@ -3,6 +3,8 @@
 export default Ember.ObjectController.extend({
 	needs: ['new'],
 	invitees: Ember.computed.alias('controllers.new.invitees'),
+	isValid: Ember.computed.alias('controllers.new.isValid'),
+	isNotValid: Ember.computed.not('isValid'),
 	when: function(key, value) {
 		var when;
 		if (arguments.length > 1) {

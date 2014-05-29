@@ -12,7 +12,7 @@ export default {
 		application.inject('store', 'session', 'session:main');
 		application.deferReadiness();
 		// TODO User ID should specified in html. 
-		store.find('user', '-JLv-VAuLcu_azRKv4iF').then(function(user) {
+		store.find('user', '-JO7EyRq1TB4t9fKVe9D').then(function(user) {
 			session.set('user', user);
 			application.advanceReadiness();
 		});

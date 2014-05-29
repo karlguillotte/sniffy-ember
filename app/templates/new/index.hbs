@@ -1,13 +1,45 @@
-<ul>
-	<li>{{#link-to "new.what"}}What::{{what}}{{/link-to}}</li>
-	<li>{{#link-to "new.where"}}Where::{{where}}{{/link-to}}</li>
-	<li>{{input type="date" value=when placeholder="When?"}}::{{format-date when}}</li>
-	<li>{{#link-to "new.who"}}Who::({{invitees.length}})
-		<ul>
-			{{#each invitee in invitees}}
-			<li>{{invitee}}</li>
+<form {{action create on="submit"}} role="form">
+	<ul class="list-group">
+
+		<li class="list-group-item">
+			<div class="input-group">
+				{{input value=what placeholder="What?"}}
+				<span class="input-group-btn">
+					{{#link-to "new.what" classNames="btn"}}
+						<span class="glyphicon glyphicon-list"></span>
+					{{/link-to}}
+				</span>
+			</div>
+		</li>
+		
+		<li class="list-group-item">
+			<div class="input-group">
+				{{input value=where placeholder="Where?"}}
+				<span class="input-group-btn">
+					{{#link-to "new.where" classNames="btn"}}
+						<span class="glyphicon glyphicon-list"></span>
+					{{/link-to}}
+				</span>
+			</div>
+		</li>
+		
+		<li class="list-group-item">
+			{{input value=when type="date" placeholder="When?"}}
+		</li>
+
+		{{#link-to "new.who" classNames="list-group-item"}}
+			{{#each invitees}}
+				<span>
+					{{name}} ({{handle}})
+				</span>
+			{{else}}
+				<span class="text-muted">Who?</span>
 			{{/each}}
-		</ul>
-	{{/link-to}}</li>
-</ul>
-<button {{action create}} class="btn">Sniffy!</button>
+
+		{{/link-to}}
+
+
+	</ul>
+
+	<button type="submit" class="btn" {{bind-attr disabled=isNotValid }}>Sniffy!</button>
+</form>

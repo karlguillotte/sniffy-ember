@@ -1,0 +1,10 @@
+<ul class="list-group">
+	{{#each model}}
+		<a href="#" class="list-group-item" {{action select this}}>
+			{{this}}
+		</a>
+	{{/each}}
+	<div class="list-group-item">
+		{{outlet}}
+	</div>
+</ul>

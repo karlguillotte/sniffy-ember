@@ -1,6 +1,8 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
 
 var app = new EmberApp({
   name: require('./package.json').name,
@@ -19,8 +21,7 @@ app.import('vendor/firebase/firebase.js');
 app.import('vendor/emberfire/dist/emberfire.js');
 app.import('vendor/momentjs/moment.js');
 app.import('vendor/ember-validations/index.js');
-app.import('vendor/ember-easyForm/index.js');
-app.import('vendor/bootstrap/dist/css/bootstrap.css');
+// app.import('vendor/bootstrap/dist/css/bootstrap.css');
 
 // If the library that you are including contains AMD or ES6 modules that
 // you would like to import into your application please specify an
@@ -36,5 +37,12 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
+var bootstrapAssets = pickFiles('vendor/bootstrap/dist', {
+  srcDir: '/',
+  files: ['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/bootstrap.css'],
+  destDir: '/assets/bootstrap'
+});
 
-module.exports = app.toTree();
+
+
+module.exports = mergeTrees([app.toTree(), bootstrapAssets]);

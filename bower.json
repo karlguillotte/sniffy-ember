@@ -16,6 +16,7 @@
     "momentjs": "~2.6.0",
     "firebase": "~1.0.12",
     "emberfire": "~1.0.8",
-    "ember-validations": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/canary/ember-validations.js"
+    "ember-validations": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/canary/ember-validations.js",
+    "ember-simple-auth": "~0.5.0"
   }
 }

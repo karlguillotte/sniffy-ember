@@ -19,3 +19,7 @@ Deployment
 ember build
 firebase deploy
 ```
+
+Screenshots
+-----------
+https://www.lucidchart.com/documents/edit/c8d54cba-1343-4652-bd52-abaac65f6879

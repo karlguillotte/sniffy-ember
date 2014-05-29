@@ -2,6 +2,7 @@ Sniffy
 ======
 
 Installation
+------------
 ```sh
 git clone https://github.com/blairbodnar/sniffy
 cd sniffy
@@ -12,6 +13,7 @@ ember server
 ```
 
 Deployment
+----------
 ```sh
 ember build
 firebase deploy

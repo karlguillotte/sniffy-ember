@@ -7,6 +7,7 @@ Installation
 git clone https://github.com/blairbodnar/sniffy
 cd sniffy
 npm install -g ember-cli
+npm install -g firebase-cli
 npm install
 bower install
 ember server

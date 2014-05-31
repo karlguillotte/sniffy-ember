@@ -4,16 +4,19 @@
 ```sh
 git clone https://github.com/blairbodnar/sniffy
 cd sniffy
-npm install -g ember-cli
-npm install -g firebase-cli
 npm install
 bower install
 ```
 
-npm and bower install should be run everytime this repo is synchronized. 
 
 ## Running
 ```sh
+ember server
+```
+npm and bower install should be run everytime this repo is synchronized. 
+```sh
+npm install
+bower install
 ember server
 ```
 Visit [http://localhost:4200](http://localhost:4200)

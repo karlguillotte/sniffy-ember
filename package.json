@@ -27,6 +27,7 @@
     "glob": "^3.2.9",
     "firebase-cli": "^1.0.4",
     "broccoli-static-compiler": "^0.1.4",
-    "broccoli-merge-trees": "^0.1.3"
+    "broccoli-merge-trees": "^0.1.3",
+    "broccoli-less-single": "^0.1.4"
   }
 }

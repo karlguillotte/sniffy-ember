@@ -1,6 +1,8 @@
 import Create from '../create';
 
 export default Create.extend({
+	needs: ['new'],
+	invitees: Ember.computed.alias('controllers.new.invitees'),
 	placeholder: 'New Invitee...'.loc(),
 	actions: {
 		create: function() {

@@ -2,6 +2,7 @@
 
 export default Ember.ObjectController.extend({
 	needs: ['new'],
+	title: 'New'.loc(),
 	invitees: Ember.computed.alias('controllers.new.invitees'),
 	isValid: Ember.computed.alias('controllers.new.isValid'),
 	isNotValid: Ember.computed.not('isValid'),

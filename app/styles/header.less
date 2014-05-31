@@ -1,0 +1,49 @@
+header {
+	display: table;
+	width: 100%;
+	font-size: 16px;
+	white-space: nowrap;
+	h1 {
+		font-size: 24px;
+	}
+	> .left {
+		display: table-cell;
+		text-align: left;
+		width: 150px;
+	}
+	> .center {
+		display: table-cell;
+		text-align: center;
+		width: 100%;
+	}
+	> .right {
+		display: table-cell;
+		text-align: right;
+		width: 150px;
+	}
+
+	ul.dots {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		li {
+			display: inline;
+			a {
+				text-decoration: none;
+				padding: 5px;
+				.dot {
+					display: inline-block;;
+					background-color: lightgray;
+					height: 5px;
+					width: 5px;
+					border-radius: 2px;
+				}
+				&:hover, &.active {
+					.dot {
+						background-color: gray;
+					}
+				}
+			}
+		}
+	}
+}

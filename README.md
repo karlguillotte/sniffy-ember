@@ -1,7 +1,5 @@
 # Sniffy
 
-This README outlines the details of collaborating on this application.
-
 ## Installation
 ```sh
 git clone https://github.com/blairbodnar/sniffy
@@ -12,16 +10,19 @@ npm install
 bower install
 ```
 
+npm and bower install should be run everytime this repo is synchronized. 
+
 ## Running
 ```sh
 ember server
 ```
-Visit http://localhost:4200
+Visit [http://localhost:4200](http://localhost:4200)
 
 ## Building & Deployment
 ```sh
 ember build
 firebase deploy
+firebase open
 ```
 
 ## Running Tests

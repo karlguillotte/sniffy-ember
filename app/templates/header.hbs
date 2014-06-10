@@ -1,0 +1,32 @@
+<div class="left">
+	{{#with parent}}
+		{{#link-to routeName}}{{text}}{{/link-to}}
+	{{/with}}
+</div>
+<div class="center">
+	<h1>{{title}}</h1>
+	<ul class="dots">
+		<li>
+			{{#link-to "sniffies.index"}}
+				<span class="dot"></span>
+			{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "sniffies.previous"}}
+				<span class="dot"></span>
+			{{/link-to}}
+		</li>
+		<li>
+			{{#link-to "settings"}}
+				<span class="dot"></span>
+			{{/link-to}}
+		</li>	
+	</ul>
+</div>
+<div class="right">
+	{{#with action}}
+	<button class="btn-link" {{action name}} {{bind-attr disabled=isDisabled}}>
+		{{text}}
+	</button>
+	{{/with}}
+</div>

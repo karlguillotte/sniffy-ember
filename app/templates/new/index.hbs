@@ -1,43 +1,49 @@
-<form {{action create on="submit"}} role="form">
-	<ul class="list-group">
+<div class="row">
+	<div class="col-xs-4 col-md-2">
+		{{sniffy-user user=session.user size="lg"}}
+	</div>
+	<div class="col-xs-8 col-md-10">
+		<form {{action create on="submit"}} role="form">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="input-group">
+						{{input value=what placeholder="What?"}}
+						<span class="input-group-btn">
+							{{#link-to "new.what" classNames="btn"}}
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							{{/link-to}}
+						</span>
+					</div>
+				</li>
+				
+				<li class="list-group-item">
+					<div class="input-group">
+						{{input value=where placeholder="Where?"}}
+						<span class="input-group-btn">
+							{{#link-to "new.where" classNames="btn"}}
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							{{/link-to}}
+						</span>
+					</div>
+				</li>
+				<li class="list-group-item">
+					{{input value=when type="date" placeholder="When?"}}
+				</li>
+				{{#link-to "new.who" classNames="list-group-item"}}
+					<ul class="unstyled">
+						{{#each invitee in invitees}}
+							<li>
+								{{sniffy-user user=invitee size="sm"}}
+							</li>
+						{{else}}
+							<li class="text-muted">Who?</li>
+						{{/each}}
+					</ul>
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				{{/link-to}}
+			</ul>
+		</form>
+	</div>	
+</div>
 
-		<li class="list-group-item">
-			<div class="input-group">
-				{{input value=what placeholder="What?"}}
-				<span class="input-group-btn">
-					{{#link-to "new.what" classNames="btn"}}
-						<span class="glyphicon glyphicon-list"></span>
-					{{/link-to}}
-				</span>
-			</div>
-		</li>
-		
-		<li class="list-group-item">
-			<div class="input-group">
-				{{input value=where placeholder="Where?"}}
-				<span class="input-group-btn">
-					{{#link-to "new.where" classNames="btn"}}
-						<span class="glyphicon glyphicon-list"></span>
-					{{/link-to}}
-				</span>
-			</div>
-		</li>
-		
-		<li class="list-group-item">
-			{{input value=when type="date" placeholder="When?"}}
-		</li>
 
-		{{#link-to "new.who" classNames="list-group-item"}}
-			{{#each invitees}}
-				<span>
-					{{name}} ({{handle}})
-				</span>
-			{{else}}
-				<span class="text-muted">Who?</span>
-			{{/each}}
-
-		{{/link-to}}
-
-
-	</ul>
-</form>

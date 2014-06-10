@@ -1,9 +1,7 @@
-{{#each}}
-	{{what}} @ {{where}}<br>
-	{{when}}
-	<ul>
-	{{#each invitations}}
-		<li>{{user.name}} ({{user.handle}}) > {{answer}}</li>
+<ul class="unstyled">
+	{{#each sniffy in model}}
+		<li>
+			{{sniffy-element sniffy=sniffy}}
+		</li>
 	{{/each}}
-	</ul>
-{{/each}}
+</ul>

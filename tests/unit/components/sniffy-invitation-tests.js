@@ -2,7 +2,7 @@ import { test, moduleForComponent } from 'ember-qunit';
 
 var component;
 
-moduleForComponent('list-group-item', 'Unit - List group item component',
+moduleForComponent('sniffy-invitation', 'Unit - Sniffy invitation component',
                    {
   setup: function() {
     component = this.subject();

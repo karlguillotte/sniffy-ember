@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 	},
 	model: function() {
 		return this.store.createRecord('sniffy', {
-			host: this.store.get('session.user')
+			host: this.get('session.user')
 		});
 	},
 	deactivate: function() {
@@ -26,15 +26,10 @@ export default Ember.Route.extend({
 		var sniffy = this.controller.get('model');
 		var invitees = this.controller.get('invitees');
 		var invitations = invitees.map(this.createInvitation, this);
-		var saveSniffy = function() {
-			return sniffy.save();
-		};
-		var saveInvitations = invitations.invoke('save');
 
-		sniffy.get('invitations').clear().pushObjects(invitations);
+		sniffy.get('invitations').addObjects(invitations);
 		
-		// TODO Not nice, there might be a better way to save
-		return Ember.RSVP.all(saveInvitations).then(saveSniffy);
+		return sniffy.save();
 	},
 	actions: {
 		create: function() {

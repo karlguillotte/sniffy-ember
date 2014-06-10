@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-xs-4 col-md-2">
+		{{sniffy-user user=session.user size="lg"}}
+	</div>
+	<div class="col-xs-8 col-md-10">
+		{{#with sniffy}}
+			{{what}} @ {{where}}<br>
+			{{format-date-time when}}
+			<ul class="unstyled">
+				{{#each invitation in invitations}}
+					<li>
+						{{sniffy-invitation invitation=invitation}}
+					</li>
+				{{/each}}
+			</ul>
+		{{/with}}
+	</div>	
+</div>
+{{yield}}

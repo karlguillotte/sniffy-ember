@@ -17,7 +17,11 @@ Router.map(function() {
         });   
         this.route('previous');
     });
-    this.route('settings');
+    this.resource('settings', function() {
+        this.route('calendar');
+        this.route('account');
+        this.route('friends');
+    });
 });
 
 export default Router;

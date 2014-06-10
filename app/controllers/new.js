@@ -1,5 +1,6 @@
 export default Ember.ObjectController.extend(Ember.Validations.Mixin, {
 	invitees: [],
+	title: 'New'.loc(),
 	validations: {
 		what: {
 			presence: true
@@ -8,7 +9,12 @@ export default Ember.ObjectController.extend(Ember.Validations.Mixin, {
 			presence: true
 		},
 		invitees: {
-			// length: { minimum: 1 }
+			// length: {
+			// 	tokenizer: function(value) { 
+			// 		return value.slice(); 
+			// 	},
+			// 	minimum: 1
+			// }		
 		}
 	}
 });

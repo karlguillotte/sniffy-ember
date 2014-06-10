@@ -1,27 +1,18 @@
-var templateExists = function(container, templateName) {
-	return !!container.lookup('template:' + templateName);
-};
-
 export default {
-	name: 'route',
+	name: 'route-render-header',
 	initialize: function() {
 		
+		// Render header template
 		Ember.Route.reopen({
 			headerTemplateName: null,
 			renderHeaderTemplate: function() {
-				var templateName = this.headerTemplateName || this.routeName + '.header';
-				var container = this.container;
+				var templateName = this.headerTemplateName || 'header';
 
-				if (!templateExists(container, templateName)) {
-					templateName = templateName.replace('.index', '');
-				}
-
-				if (templateExists(container, templateName)) {
-					this.render(templateName, {
-						outlet: 'header',
-						into: 'application'
-					});
-				}
+				this.render(templateName, {
+					outlet: 'header',
+					into: 'application',
+					controller: this.controller
+				});
 			},
 			renderTemplate: function() {
 				this._super();
@@ -29,14 +20,25 @@ export default {
 			}
 		});
 
+		// Setting parent
+
+
+
+		// Ember.ControllerMixin.reopen({
+		// 	parent: function() {
+				
+		// 	}.property()
+		// });
+
+		// Set  title
 		Ember.Route.reopen({
-			setupController: function(controller, model) {
+			setupController: function() {
 				this._super.apply(this, arguments);
 				
 				this.setApplicationTitle();
 			},
-			setApplicationTitle: function() {
-				var title = this.controller.title;
+			setApplicationTitle: function(title) {
+				title = title || this.controller.title;
 
 				if (!title)
 					return;

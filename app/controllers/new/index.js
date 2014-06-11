@@ -1,10 +1,13 @@
 /* global moment */
 
 export default Ember.ObjectController.extend({
-	needs: ['new'],
+	needs: ['new', 'header'],
 	invitees: Ember.computed.alias('controllers.new.invitees'),
-	isValid: Ember.computed.alias('controllers.new.isValid'),
-	isNotValid: Ember.computed.not('isValid'),
+	setIsDisabled: function() {
+		var isValid = this.get('controllers.new.isValid');
+
+		this.set('controllers.header.action.isDisabled', !isValid);
+	}.property('controllers.new.isValid'),
 	when: function(key, value) {
 		var when;
 		if (arguments.length > 1) {

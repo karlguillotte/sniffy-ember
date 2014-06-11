@@ -2,7 +2,7 @@
 
 ## Installation
 ```sh
-git clone https://github.com/blairbodnar/sniffy
+git clone https://github.com/karlguillotte/sniffy
 cd sniffy
 npm install
 bower install

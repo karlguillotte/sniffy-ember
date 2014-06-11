@@ -1,3 +1,5 @@
-export default Ember.ArrayController.extend({
+import Abstract from './abstract';
+
+export default Abstract.extend({
 	title: 'Sniffies'.loc()
 });

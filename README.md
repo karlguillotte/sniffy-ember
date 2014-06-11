@@ -38,5 +38,5 @@ https://www.lucidchart.com/documents/edit/c8d54cba-1343-4652-bd52-abaac65f6879
 
 ## If empty database
 ```JavaScript
-Sniffy.__container__.lookup('store:main').createRecord('user', { name: 'Blair Bodnar', handle: 'BB', id: '-JO7EyRq1TB4t9fKVe9D' }).save();
+Sniffy.__container__.lookup('store:main').createRecord('user', { firstName: 'Blair', lastName: 'Bodnar', handle: 'BB', id: '-JO7EyRq1TB4t9fKVe9D' }).save();
 ```

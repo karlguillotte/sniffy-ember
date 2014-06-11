@@ -1,11 +1,11 @@
 <div class="left">
-	{{#with parent}}
-		{{#link-to routeName}}{{text}}{{/link-to}}
-	{{/with}}
+	{{#if parent}}
+		{{#link-to parent}}< {{controller-title parent}}{{/link-to}}
+	{{/if}}
 </div>
 <div class="center">
 	<h1>{{title}}</h1>
-	<ul class="dots">
+	<ul {{bind-attr class=":dots displayDots::hidden"}}>
 		<li>
 			{{#link-to "sniffies.index"}}
 				<span class="dot"></span>
@@ -24,9 +24,13 @@
 	</ul>
 </div>
 <div class="right">
-	{{#with action}}
-	<button class="btn-link" {{action name}} {{bind-attr disabled=isDisabled}}>
-		{{text}}
-	</button>
-	{{/with}}
+	{{#if action}}
+		<button class="btn-link" {{action action.name}} {{bind-attr disabled=action.isDisabled}}>
+			{{#if action.text}}
+				{{action.text}}
+			{{else}}
+				{{controller-title action.name}}
+			{{/if}}
+		</button>
+	{{/if}}
 </div>

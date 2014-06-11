@@ -3,34 +3,24 @@ export default {
 	initialize: function() {
 		
 		// Render header template
-		Ember.Route.reopen({
-			headerTemplateName: null,
-			renderHeaderTemplate: function() {
-				var templateName = this.headerTemplateName || 'header';
+		// Ember.Route.reopen({
+		// 	headerTemplateName: null,
+		// 	renderHeaderTemplate: function() {
+		// 		var templateName = this.headerTemplateName || 'header';
 
-				this.render(templateName, {
-					outlet: 'header',
-					into: 'application',
-					controller: this.controller
-				});
-			},
-			renderTemplate: function() {
-				this._super();
-				this.renderHeaderTemplate();
-			}
-		});
-
-		// Setting parent
-
-
-
-		// Ember.ControllerMixin.reopen({
-		// 	parent: function() {
-				
-		// 	}.property()
+		// 		this.render(templateName, {
+		// 			outlet: 'header',
+		// 			into: 'application',
+		// 			controller: this.controller
+		// 		});
+		// 	},
+		// 	renderTemplate: function() {
+		// 		this._super();
+		// 		this.renderHeaderTemplate();
+		// 	}
 		// });
 
-		// Set  title
+		// Set title
 		Ember.Route.reopen({
 			setupController: function() {
 				this._super.apply(this, arguments);

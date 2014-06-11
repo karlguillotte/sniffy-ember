@@ -1,6 +1,6 @@
 export default Ember.Route.extend({
-	setupController: function(controller, model) {
-		this._super(controller, model);
+	setupController: function(model, controller) {
+		this._super.apply(this, arguments);
 
 		controller.get('invitees').clear();
 	},
@@ -15,6 +15,8 @@ export default Ember.Route.extend({
 		if (model.get('isNew')) {
 			model.rollback();
 		}
+
+		this.controllerFor('header').set('parent', null);
 	},
 	createInvitation: function(invitee) {
 		return this.store.createRecord('invitation', {

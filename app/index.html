@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{BASE_TAG}}
-
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/sniffy.css">
   </head>
   <body>
     <script>
-      window.ENV = {{ENV}};
+      window.SniffyENV = {{ENV}};
+      window.EmberENV = window.SniffyENV.EmberENV;
     </script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/sniffy.js"></script>
     <script>
-      window.Sniffy = require('sniffy/app')['default'].create(ENV.APP);
+      window.Sniffy = require('sniffy/app')['default'].create(SniffyENV.APP);
     </script>
   </body>
 </html>

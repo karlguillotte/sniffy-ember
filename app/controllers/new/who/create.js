@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import Create from '../create';
 
 export default Create.extend({

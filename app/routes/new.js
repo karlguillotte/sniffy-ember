@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.Route.extend({
 	setupController: function(model, controller) {
 		this._super.apply(this, arguments);

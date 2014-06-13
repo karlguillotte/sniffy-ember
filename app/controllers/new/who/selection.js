@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.ObjectController.extend({
 	needs: ['new'],
 	invitees: Ember.computed.alias('controllers.new.invitees'),

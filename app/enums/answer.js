@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 var Answer = Ember.Object.extend({
 	name: Ember.required(String),
 	text: function() {

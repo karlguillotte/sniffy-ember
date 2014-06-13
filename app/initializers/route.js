@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default {
 	name: 'route-render-header',
 	initialize: function() {
@@ -10,12 +12,16 @@ export default {
 				this.setApplicationTitle();
 			},
 			setApplicationTitle: function(title) {
-				title = title || this.controller.title;
+				
+				if (Ember.isEmpty(title)) {
+					title = this.controller.title;
+				}
 
-				if (!title)
+				if (!title) {
 					return;
+				}
 
-				this.controllerFor('application').set('title', title.loc());
+				this.controllerFor('application').set('title', title);
 			}
 		});
 	}

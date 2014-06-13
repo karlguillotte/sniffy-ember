@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import Answer from '../enums/answer';
 
 export default Ember.Component.extend({

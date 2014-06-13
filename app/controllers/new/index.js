@@ -1,5 +1,7 @@
 /* global moment */
 
+import Ember from 'ember';
+
 export default Ember.ObjectController.extend({
 	needs: ['new', 'header'],
 	invitees: Ember.computed.alias('controllers.new.invitees'),

@@ -5,10 +5,12 @@ export default DS.Model.extend({
 	name: function(key, value) {
 		if (arguments.length > 1) {
 			var names = value.w();
+			
 			this.setProperties({
 				firstName: names[0],
 				lastName: names[1]
 			});
+			
 			return value;
 		}
 

@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default DS.Model.extend({
 	what: DS.attr('string'),
 	where: DS.attr('string'),

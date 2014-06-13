@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default {
 	name: 'session',
 	after: 'store',

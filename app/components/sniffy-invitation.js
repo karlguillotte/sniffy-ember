@@ -1,15 +1,20 @@
 import Ember from 'ember';
 import Answer from '../enums/answer';
 
+var alias = Ember.computed.alias;
+
 export default Ember.Component.extend({
 	tagName: 'sniffy-invitation',
-	classNameBindings: ['invitation.answer.name'],
-	invitation: Ember.required('invitation'),
+	classNameBindings: ['answer'],
+	invitation: null,
+	status: alias('invitation.status'),
+	answer: alias('invitation.answer'),
+	user: alias('invitation.user'),
 	showAnswer: function() {
-		var status = this.get('invitation.status');
-		var answer = this.get('invitation.answer');
+		var status = this.get('status');
+		var answer = this.get('answer');
 		var invitee = this.get('user');
-		var user = this.get('session.user');
+		var user = this.get('user');
 		var template = 'template';
 		var context = {
 			status: status
@@ -21,7 +26,7 @@ export default Ember.Component.extend({
 		this.showPopover(template, context);
 		}
 	}.on('click'),
-	showPopover: function(template, context) {
+	showPopover: function() {
 		// this.$().show();
 	},
 	hidePopover: function() {

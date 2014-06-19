@@ -1,7 +1,20 @@
+import DS from 'ember-data';
+
+var attr = DS.attr;
+var hasMany = DS.hasMany;
+
 export default DS.Model.extend({
-	handle: DS.attr('string'),
-	firstName: DS.attr('string'),
-	lastName: DS.attr('string'),
+
+	// Attributes
+	handle: attr('string'),
+	firstName: attr('string'),
+	lastName: attr('string'),
+
+	// Relationships
+	invitations: hasMany('invitation', { async: true }),
+	hostedSniffies: hasMany('sniffy', { async: true }),
+
+	// Computed properties
 	name: function(key, value) {
 		if (arguments.length > 1) {
 			var names = value.w();
@@ -19,6 +32,4 @@ export default DS.Model.extend({
 
 		return '%@ %@'.fmt(firstName, lastName);
 	}.property('firstName', 'lastName'),
-	invitations: DS.hasMany('invitation', { async: true }),
-	hostedSniffies: DS.hasMany('sniffy', { async: true })
 });

@@ -1,5 +1,9 @@
 import Ember from 'ember';
+import DS from 'ember-data';
 import Answer from '../enums/answer';
+
+var attr = DS.attr;
+var belongsTo = DS.belongsTo;
 
 var status = Ember.Map.create();
 status.set(Answer.ACCEPT, '%@ is going');
@@ -11,22 +15,40 @@ selfStatus.set(Answer.ACCEPT, 'You are going');
 selfStatus.set(Answer.DECLINE, 'You are not going');
 selfStatus.set(Answer.IGNORE, 'You are ignoring');
 
-var Invitation = DS.Model.extend({
-	answer: DS.attr('answer', {
+export default DS.Model.extend({
+
+	// Attributes
+	answer: attr('answer', {
 		defaultValue: Answer.IGNORE
 	}),
-	user: DS.belongsTo('user', { async: true }),
-	sniffy: DS.belongsTo('sniffy', { async: true }),
+	createdOn: attr('date', {
+		defaultValue: function() {
+			return new Date();
+		}
+	}),
+
+	// Relationships
+	user: belongsTo('user', { async: true }),
+	sniffy: belongsTo('sniffy', { async: true }),
+
+	// Computed Properties
 	status: function() {
 		var answer = this.get('answer');
 		var invitee = this.get('user');
-		var user = this.get('session.user');
+		var user = this.get('store.session.user');
 
-		if (user === invitee)
+		if (user === invitee) {
 			return selfStatus.get(answer);
+		}
 
 		return status.get(answer);
-	}.property('answer', 'user', 'session.user')
-});
+	}.property('answer', 'user', 'store.session.user'),
 
-export default Invitation;
+	// Method
+	setUser: function() {
+		var user = this.store.get('session:user');
+
+		this.set('user', user);
+		// TODO Make sure this event exists
+	}.on('didCreate')
+});

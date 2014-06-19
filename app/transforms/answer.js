@@ -1,3 +1,4 @@
+import DS from 'ember-data';
 import Answer from '../enums/answer';
 
 export default DS.Transform.extend({

@@ -3,20 +3,20 @@
 		Calendar
 		<span class="pull-right">
 			<span class="text-muted">Personal</span>
-			<span class="glyphicon glyphicon-chevron-right"></span>
+			{{sniffy-icon type="arrow-right"}}
 		</span>
 	{{/link-to}}
 	{{#link-to "settings.account" classNames="list-group-item"}}
 		Account
 		<span class="pull-right">
 			<span class="text-muted">{{session.user.name}}</span>
-			<span class="glyphicon glyphicon-chevron-right"></span>
+			{{sniffy-icon type="arrow-right"}}
 		</span>
 	{{/link-to}}
 	{{#link-to "settings.friends" classNames="list-group-item"}}
 		Manager Friends
 		<span class="pull-right">
-			<span class="glyphicon glyphicon-chevron-right"></span>
+			{{sniffy-icon type="arrow-right"}}
 		</span>
 	{{/link-to}}
 </div>

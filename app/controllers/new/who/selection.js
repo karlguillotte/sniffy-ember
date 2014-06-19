@@ -10,10 +10,11 @@ export default Ember.ObjectController.extend({
 		toggle: function(user) {
 			var invitees = this.get('invitees');
 
-			if (invitees.contains(user))
+			if (invitees.contains(user)) {
 				invitees.removeObject(user);
-			else
+			} else {
 				invitees.pushObject(user);
+			}
 		}
 	}
 });

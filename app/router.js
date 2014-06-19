@@ -16,7 +16,8 @@ Router.map(function() {
             this.resource('new.who', { path: '/who' }, function() {
                 this.route('create', { path: '' });
             });
-        });   
+        });
+        this.route('sniffy', { path: ':sniffy_id' });
         this.route('previous');
     });
     this.resource('settings', function() {
@@ -24,6 +25,7 @@ Router.map(function() {
         this.route('account');
         this.route('friends');
     });
+  this.route('sniffies/sniffy');
 });
 
 export default Router;

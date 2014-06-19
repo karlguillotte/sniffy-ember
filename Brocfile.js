@@ -56,13 +56,6 @@ app.import('vendor/emberfire/dist/emberfire.js');
 app.import('vendor/momentjs/moment.js');
 app.import('vendor/ember-validations/index.js');
 // app.import('vendor/ember-simple-auth/ember-simple-auth.js');
-// app.import('vendor/bootstrap/dist/css/bootstrap.css');
 
 
-var bootstrapAssets = pickFiles('vendor/bootstrap/dist', {
-  srcDir: '/',
-  files: ['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/bootstrap.css'],
-  destDir: '/assets/bootstrap'
-});
-
-module.exports = mergeTrees([app.toTree(), bootstrapAssets]); 
+module.exports = app.toTree();

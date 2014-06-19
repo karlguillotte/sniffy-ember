@@ -26,11 +26,7 @@
 <div class="right">
 	{{#if action}}
 		<button class="btn-link" {{action action.name}} {{bind-attr disabled=action.isDisabled}}>
-			{{#if action.text}}
-				{{action.text}}
-			{{else}}
-				{{controller-title action.name}}
-			{{/if}}
+			{{action.text}}
 		</button>
 	{{/if}}
 </div>

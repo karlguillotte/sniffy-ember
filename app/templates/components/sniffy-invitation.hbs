@@ -1,2 +1,5 @@
-{{sniffy-user user=invitation.user size="md"}}
-{{yield}}
+{{#if template}}
+	{{sniffy-user user=user size="md"}}
+{{else}}
+	{{yield}}
+{{/if}}

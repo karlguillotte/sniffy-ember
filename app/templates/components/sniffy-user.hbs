@@ -1,2 +1,5 @@
-<span class="glyphicon glyphicon-user"></span>
-{{yield}}
+{{#if template}}
+	{{yield}}
+{{else}}
+	{{sniffy-icon type="user"}}
+{{/if}}

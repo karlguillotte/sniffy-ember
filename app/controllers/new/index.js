@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
 		var isValid = this.get('controllers.new.isValid');
 
 		this.set('controllers.header.action.isDisabled', !isValid);
-	}.property('controllers.new.isValid'),
+	}.observes('controllers.new.isValid'),
 	when: function(key, value) {
 		var when;
 		if (arguments.length > 1) {

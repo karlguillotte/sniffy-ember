@@ -9,8 +9,8 @@
 					<div class="input-group">
 						{{input value=what placeholder="What?"}}
 						<span class="input-group-btn">
-							{{#link-to "new.what" classNames="btn"}}
-								<span class="glyphicon glyphicon-chevron-right"></span>
+							{{#link-to "new.what"}}
+								{{sniffy-icon type="arrow-right"}}
 							{{/link-to}}
 						</span>
 					</div>
@@ -20,8 +20,8 @@
 					<div class="input-group">
 						{{input value=where placeholder="Where?"}}
 						<span class="input-group-btn">
-							{{#link-to "new.where" classNames="btn"}}
-								<span class="glyphicon glyphicon-chevron-right"></span>
+							{{#link-to "new.where"}}
+								{{sniffy-icon type="arrow-right"}}
 							{{/link-to}}
 						</span>
 					</div>
@@ -30,7 +30,7 @@
 					{{input value=when type="date" placeholder="When?"}}
 				</li>
 				{{#link-to "new.who" classNames="list-group-item"}}
-					<ul class="unstyled">
+					<ul class="list-inline">
 						{{#each invitee in invitees}}
 							<li>
 								{{sniffy-user user=invitee size="sm"}}
@@ -39,7 +39,7 @@
 							<li class="text-muted">Who?</li>
 						{{/each}}
 					</ul>
-					<span class="glyphicon glyphicon-chevron-right"></span>
+					{{sniffy-icon type="arrow-right"}}
 				{{/link-to}}
 			</ul>
 		</form>

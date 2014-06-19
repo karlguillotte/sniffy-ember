@@ -15,23 +15,16 @@ export default Ember.Route.extend({
 		var model = this.controller.get('model');
 		
 		if (model.get('isNew')) {
-			model.rollback();
+			model.deleteRecord();
 		}
 
 		this.controllerFor('header').set('parent', null);
 	},
-	createInvitation: function(invitee) {
-		return this.store.createRecord('invitation', {
-			sniffy: this.controller.get('model'),
-			user: invitee
-		});
-	},
 	save: function() {
 		var sniffy = this.controller.get('model');
 		var invitees = this.controller.get('invitees');
-		var invitations = invitees.map(this.createInvitation, this);
 
-		sniffy.get('invitations').addObjects(invitations);
+		sniffy.addInvitations(invitees);
 		
 		return sniffy.save();
 	},

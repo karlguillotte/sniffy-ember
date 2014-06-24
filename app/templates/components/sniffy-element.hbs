@@ -10,12 +10,12 @@
 						{{sniffy-icon type="edit"}}
 					{{/link-to}}
 				{{/if}}
-				{{sniffy-icon type="reorder" ariaRole="button" action="toggleComments"}}
+				{{sniffy-icon type="chat" ariaRole="button" action="toggleComments"}}
 			</div>
 		</div>
 		<div class="col-xs-8 col-md-10">
-			{{whatAndWhere}}<br>
-			{{format-date-time when}}
+			<p>{{whatAndWhere}}</p>
+			{{date-time time=when}}
 			<ul class="list-inline">
 				{{#each invitation in invitations}}
 					<li>
@@ -25,10 +25,12 @@
 			</ul>
 		</div>
 		{{#if displayComments}}
-			{{#each comment in comments}}
-				{{sniffy-comment comment=comment}}
-			{{/each}}
-			{{input value=comment placeholder="Enter a comment..." enter="addComment"}}
+			<div>
+				{{#each comment in comments}}
+					{{sniffy-comment comment=comment}}
+				{{/each}}
+				{{input value=comment placeholder="Enter a comment..." enter="addComment"}}
+			</div>
 		{{/if}}
 	</div>
 {{/if}}

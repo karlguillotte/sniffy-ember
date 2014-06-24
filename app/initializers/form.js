@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default {
-	name: 'ember-easyForm',
+	name: 'form',
 	initialize: function() {
 		Ember.TextSupport.reopen({
 		    classNames: ['form-control']

@@ -1,6 +1,6 @@
 export default {
-  name: 'moment',
-  initialize: function(container, app) {
-    app.inject('route', 'moment', 'service:moment');
-  }
+	name: 'date-formatter',
+	initialize: function(container, app) {
+		container.optionsForType('service:date-formatter', { instantiate: false });
+	}
 };

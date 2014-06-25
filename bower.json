@@ -20,7 +20,7 @@
     "emberfire": "~1.0.9",
     "ember-validations": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/canary/ember-validations.js",
     "ember-simple-auth": "~0.5.0",
-    "licon": "siamakmokhtari/licon"
+    "drop": "https://github.com/HubSpot/drop/archive/v0.5.4.zip"
   },
   "resolutions": {
     "jquery": "~2.1.1"

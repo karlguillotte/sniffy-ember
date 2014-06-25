@@ -24,7 +24,7 @@ Formatter.reopenClass({
 		}
 	}),
 	create: function() {
-		throw 'Please use singletons [RELATIVE, CALENDAR, DEFAULT] or function forType.';
+		throw 'Please use singletons [RELATIVE, CALENDAR, DEFAULT] or use function forType.';
 	},
 	forType: function(type) {
 		if (typeof type !== 'string')
@@ -36,4 +36,3 @@ Formatter.reopenClass({
 
 
 export default Formatter;
-

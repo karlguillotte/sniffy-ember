@@ -6,10 +6,10 @@ var DEFAULT = DateFormatterService.DEFAULT;
 
 export default Ember.Component.extend({
 	tagName: 'time',
-	attributeBindings: ['time', 'title'],
+	attributeBindings: ['title:datetime', 'title'],
 	format: 'LL',
 	type: null,
-	time: function() {
+	value: function() {
 		return new Date();
 	}.property(),
 	autoUpdate: Ember.computed.equal('type', 'relative'),
@@ -24,16 +24,16 @@ export default Ember.Component.extend({
 	}.property('autoUpdate', 'autoUpdateDelay'),
 	update: function() {
 		this.rerender();
-	}.observes('clock.pulse', 'time'),
+	}.observes('clock.pulse', 'value'),
 	text: function() {
 		var type = this.get('type');
 		var formatter = DateFormatterService.forType(type);
-		var time = this.get('time');
+		var value = this.get('value');
 		var format = this.get('format');
 
-		return formatter.format(time, format);
-	}.property('time', 'format', 'type'),
+		return formatter.format(value, format);
+	}.property('value', 'format', 'type'),
 	title: function() {
-		return DEFAULT.format(this.time);
-	}.property('time')
+		return DEFAULT.format(this.get('value'));
+	}.property('value')
 });

@@ -50,12 +50,20 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
+// Javascript
 app.import('vendor/ember-data/ember-data.js');
 app.import('vendor/firebase/firebase.js');
 app.import('vendor/emberfire/dist/emberfire.js');
 app.import('vendor/momentjs/moment.js');
 app.import('vendor/ember-validations/index.js');
+app.import('vendor/drop/drop.js');
 // app.import('vendor/ember-simple-auth/ember-simple-auth.js');
+
+// Styles
+app.import('vendor/drop/css/drop-theme-basic.css');
+app.import('vendor/drop/css/drop-theme-arrows-bounce-dark.css');
+app.import('vendor/drop/css/drop-theme-hubspot-popovers.css');
+app.import('vendor/drop/css/drop-theme-arrows.css');
 
 
 module.exports = app.toTree();

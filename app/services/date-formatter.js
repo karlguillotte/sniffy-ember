@@ -27,8 +27,9 @@ Formatter.reopenClass({
 		throw 'Please use singletons [RELATIVE, CALENDAR, DEFAULT] or use function forType.';
 	},
 	forType: function(type) {
-		if (typeof type !== 'string')
+		if (typeof type !== 'string') {
 			return this.DEFAULT;
+		}
 
 		return this[type.toUpperCase()] || this.DEFAULT;
 	}

@@ -6,6 +6,8 @@ import Ember from 'ember';
 var attr = DS.attr;
 var hasMany = DS.hasMany;
 var belongsTo = DS.belongsTo;
+var isArray = Ember.isArray;
+var map = Ember.EnumerableUtils.map;
 
 export default DS.Model.extend({
 
@@ -20,26 +22,21 @@ export default DS.Model.extend({
 	}),
 
 	// Relationships
+	host: belongsTo('user', { async: true }),
 	invitations: hasMany('invitation', { embedded: true }),
-	host: belongsTo('user', {
-		// TODO Look at the documentation: not sure there is defaultValue for relationship
-		// If not available, it needs to be done on creation...
-		defaultValue: function() {
-			return this.store.get('session:user');
-		}
-	}),	
 	comments: hasMany('comment', { embedded: true }),
 	
 	// Computed properties
-	invitees: Ember.computed.mapBy('invitations', 'user'),
+	invitees: Ember.computed.mapBy('invitations', 'invitee'),
 	isActive: function() {
 		return Date.now() < this.get('time');
 	}.property('time').volatile(),
 	time: function() {
 		var when = this.get('when');
 
-		if (when)
+		if (when) {
 			return when.getTime();
+		}
 
 	}.property('when').readOnly(),
 
@@ -48,7 +45,7 @@ export default DS.Model.extend({
 		var comments = this.get('comments');
 		var comment = this.store.createRecord('comment', {
 			sniffy: this, 
-			user: this.store.get('session:user'),
+			user: this.store.get('session.user'),
 			body: body
 		});
 
@@ -56,19 +53,32 @@ export default DS.Model.extend({
 	},
 	addInvitation: function(invitee) {
 		var invitations = this.get('invitations');
-		var invitation = this.store.createRecord('invitation', {
-			sniffy: this,
-			user: invitee
-		});
+
+		return Ember.RSVP.all(invitations.getEach('invitee')).then(function(invitees) {
+
+			if (invitees.getEach('content').contains(invitee)) {
+				return;
+			}
+			
+			var invitation = this.store.createRecord('invitation', {
+				sniffy: this,
+				invitee: invitee
+			});
 		
-		return invitations.addObject(invitation);
+			return invitations.addObject(invitation);
+		}.bind(this));
 	},
 	addInvitations: function(invitees) {
-		return invitees.map(this.addInvitation, this);
+		
+		if (!isArray(invitees)) {
+			invitees = arguments;
+		}
+
+		return Ember.RSVP.all(map(invitees, this.addInvitation, this));
 	},
 	setHost: function() {
-		var host = this.store.get('session:user');
+		var host = this.get('store.session.user');
 
 		this.set('host', host);
-	}.on('something')
+	}.on('didCreate')
 });

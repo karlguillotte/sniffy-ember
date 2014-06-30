@@ -15,8 +15,9 @@ export default Ember.Component.extend({
 	autoUpdate: Ember.computed.equal('type', 'relative'),
 	autoUpdateDelay: 5000,
 	clock: function() {
-		if (!this.get('autoUpdate'))
+		if (!this.get('autoUpdate')) {
 			return null;
+		}
 
 		return ClockService.create({
 			frequency: this.get('autoUpdateDelay')

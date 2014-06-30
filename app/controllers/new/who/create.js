@@ -9,8 +9,7 @@ export default Create.extend({
 		create: function() {
 			var value = this.get('value');
 			var user = this.store.createRecord('user', {
-				name: value,
-				handle: value.w().map(function(part) { return part[0]; }).join('')
+				name: value
 			});
 
 			user.save().then(function() {

@@ -6,7 +6,11 @@ var hasMany = DS.hasMany;
 export default DS.Model.extend({
 
 	// Attributes
-	handle: attr('string'),
+	handle: attr('string', {
+		defaultValue: function(model) {
+			return model.computeHandle();
+		}
+	}),
 	firstName: attr('string'),
 	lastName: attr('string'),
 
@@ -32,4 +36,18 @@ export default DS.Model.extend({
 
 		return '%@ %@'.fmt(firstName, lastName);
 	}.property('firstName', 'lastName'),
+
+	// Methods
+	computeHandle: function() {
+		var firstName = this.getWithDefault('firstName', '');
+		var lastName = this.getWithDefault('lastName', '');
+		var name = firstName.charAt(0) + lastName.charAt(0);
+		var handle = name ? name.toUpperCase() : null;
+
+		return handle;
+	},
+	updateHandle: function() {
+		this.set('handle', this.computeHandle());
+	}
+
 });

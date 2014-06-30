@@ -1,7 +1,7 @@
 <ul class="list-inline">
-	{{#each sniffy in arrangedContent}}
+	{{#each sniffy in controller}}
 		<li>
-			{{sniffy-element sniffy=sniffy}}
+			{{sniffy-element sniffy=sniffy addComment="addComment" newComment=newComment}}
 		</li>
 	{{/each}}
 </ul>

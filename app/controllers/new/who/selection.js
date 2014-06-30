@@ -7,13 +7,13 @@ export default Ember.ObjectController.extend({
 		return this.get('invitees').contains(this.get('content'));
 	}.property('invitees.[]'),
 	actions: {
-		toggle: function(user) {
+		toggle: function(invitee) {
 			var invitees = this.get('invitees');
 
-			if (invitees.contains(user)) {
-				invitees.removeObject(user);
+			if (invitees.contains(invitee)) {
+				invitees.removeObject(invitee);
 			} else {
-				invitees.pushObject(user);
+				invitees.pushObject(invitee);
 			}
 		}
 	}

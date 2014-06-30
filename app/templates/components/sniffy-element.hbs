@@ -19,18 +19,20 @@
 			<ul class="list-inline">
 				{{#each invitation in invitations}}
 					<li>
-						{{sniffy-invitation invitation=invitation}}
+						{{sniffy-invitation 
+							invitation=invitation 
+							accept="acceptInvitation" 
+							decline="declineInvitation"
+						}}
 					</li>
 				{{/each}}
 			</ul>
 		</div>
-		{{#if displayComments}}
-			<div>
-				{{#each comment in comments}}
-					{{sniffy-comment comment=comment}}
-				{{/each}}
-				{{input value=comment placeholder="Enter a comment..." enter="addComment"}}
-			</div>
-		{{/if}}
+		<div {{bind-attr class=":collapse displayComments:in"}}>
+			{{#each comment in comments}}
+				{{sniffy-comment comment=comment}}
+			{{/each}}
+			{{input value=newComment placeholder="Enter a comment..." enter="addComment"}}
+		</div>
 	</div>
 {{/if}}

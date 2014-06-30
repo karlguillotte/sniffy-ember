@@ -4,7 +4,6 @@ import { test, moduleForComponent } from 'ember-qunit';
 import Ember from 'ember';
 
 moduleForComponent('date-time', 'DateTimeComponent', {
-    // specify the other units that are required for this test
     // needs: ['component:foo', 'helper:bar']
 });
 

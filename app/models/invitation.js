@@ -4,16 +4,17 @@ import Answer from '../enums/answer';
 
 var attr = DS.attr;
 var belongsTo = DS.belongsTo;
+var readOnly = Ember.computed.readOnly;
 
-var status = Ember.Map.create();
-status.set(Answer.ACCEPT, '%@ is going');
-status.set(Answer.DECLINE, '%@ is not going');
-status.set(Answer.IGNORE, '%@ is ignoring');
+var otherAnswers = Ember.Map.create();
+otherAnswers.set(Answer.ACCEPT, '%@ is going');
+otherAnswers.set(Answer.DECLINE, '%@ is not going');
+otherAnswers.set(Answer.IGNORE, '%@ is ignoring');
 
-var selfStatus = Ember.Map.create();
-selfStatus.set(Answer.ACCEPT, 'You are going');
-selfStatus.set(Answer.DECLINE, 'You are not going');
-selfStatus.set(Answer.IGNORE, 'You are ignoring');
+var selfAnswers = Ember.Map.create();
+selfAnswers.set(Answer.ACCEPT, 'You are going');
+selfAnswers.set(Answer.DECLINE, 'You are not going');
+selfAnswers.set(Answer.IGNORE, 'You are ignoring');
 
 export default DS.Model.extend({
 
@@ -28,27 +29,21 @@ export default DS.Model.extend({
 	}),
 
 	// Relationships
-	user: belongsTo('user', { async: true }),
+	invitee: belongsTo('user', { async: true }),
 	sniffy: belongsTo('sniffy', { async: true }),
 
 	// Computed Properties
-	status: function() {
+	host: readOnly('sniffy.host'),
+	answerText: function() {
 		var answer = this.get('answer');
-		var invitee = this.get('user');
+		var invitee = this.get('invitee');
 		var user = this.get('store.session.user');
 
 		if (user === invitee) {
-			return selfStatus.get(answer);
+			return selfAnswers.get(answer);
 		}
 
-		return status.get(answer);
-	}.property('answer', 'user', 'store.session.user'),
+		return otherAnswers.get(answer).fmt(invitee.get('firstName'));
+	}.property('answer', 'user', 'store.session.user')
 
-	// Method
-	setUser: function() {
-		var user = this.store.get('session:user');
-
-		this.set('user', user);
-		// TODO Make sure this event exists
-	}.on('didCreate')
 });

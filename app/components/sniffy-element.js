@@ -23,15 +23,13 @@ export default Ember.Component.extend({
 		return string.fmt(what, where);
 	}.property('what', 'where'),
 	displayComments: false,
-	comment: null,
+	newComment: null,
 	actions: {
 		toggleComments: function() {
 			this.toggleProperty('displayComments');
 		},
 		addComment: function() {
-			var comment = this.get('comment');
-
-			this.sendAction('addComment', comment);
+			this.sendAction('addComment');
 		}
 	}
 });

@@ -15,7 +15,7 @@ var Enum = Ember.Object.extend({
 
 		return constants;
 	}.property(),
-	_createConstant: function(name) {
+	createConstant: function(name) {
 		if (!name) {
 			throw Error('Constant required a name.');
 		}
@@ -42,7 +42,7 @@ Enum.reopenClass({
 	create: function() {
 		var enumeration = this._super();
 		
-		Ember.EnumerableUtils.forEach(arguments, enumeration._createConstant, enumeration);
+		Ember.EnumerableUtils.forEach(arguments, enumeration.createConstant, enumeration);
 
 		return enumeration;
 	}

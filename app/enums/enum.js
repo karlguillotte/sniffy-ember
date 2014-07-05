@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import Constant from './constant';
 
+var forEach = Ember.EnumerableUtils.forEach;
+
 var Enum = Ember.Object.extend({
 	_setConstantsMap: function() {
 		this._contants = Ember.Map.create();
@@ -42,7 +44,7 @@ Enum.reopenClass({
 	create: function() {
 		var enumeration = this._super();
 		
-		Ember.EnumerableUtils.forEach(arguments, enumeration.createConstant, enumeration);
+		forEach(arguments, enumeration.createConstant, enumeration);
 
 		return enumeration;
 	}

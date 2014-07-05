@@ -38,12 +38,17 @@ export default DS.Model.extend({
 		var answer = this.get('answer');
 		var invitee = this.get('invitee');
 		var user = this.get('store.session.user');
+		var firstName;
+		var message;
 
 		if (user === invitee) {
 			return selfAnswers.get(answer);
 		}
+console.log('answer',answer)
+		message = otherAnswers.get(answer);
+		firstName = invitee.get('firstName');
 
-		return otherAnswers.get(answer).fmt(invitee.get('firstName'));
+		return message.fmt(firstName);
 	}.property('answer', 'user', 'store.session.user')
 
 });

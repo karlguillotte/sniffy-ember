@@ -29,6 +29,7 @@ export default Ember.Component.extend({
 			this.toggleProperty('displayComments');
 		},
 		addComment: function() {
+			debugger
 			this.sendAction('addComment');
 		}
 	}

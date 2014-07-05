@@ -3,16 +3,14 @@
   "dependencies": {
     "handlebars": "~1.3.0",
     "jquery": "~2.1.1",
-    "qunit": "~1.14.0",
+    "qunit": "~1.12.0",
     "ember-qunit": "~0.1.5",
     "ember": "1.5.1",
-    "ember-data": "1.0.0-beta.8",
     "ember-resolver": "~0.1.1",
-    "ic-ajax": "~1.x",
     "loader": "stefanpenner/loader.js#1.0.0",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.2",
     "ember-load-initializers": "stefanpenner/ember-load-initializers#0.0.2",
-    "ember-qunit-notifications": "^0.0.1",
+    "ember-qunit-notifications": "^0.0.3",
     "ember-cli-test-loader": "rjackson/ember-cli-test-loader#0.0.2",
     "bootstrap": "~3.1.1",
     "momentjs": "~2.6.0",
@@ -21,8 +19,5 @@
     "ember-validations": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/canary/ember-validations.js",
     "ember-simple-auth": "~0.5.0",
     "drop": "https://github.com/HubSpot/drop/archive/v0.5.4.zip"
-  },
-  "resolutions": {
-    "jquery": "~2.1.1"
   }
 }

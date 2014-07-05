@@ -44,7 +44,7 @@ export default DS.Model.extend({
 		if (user === invitee) {
 			return selfAnswers.get(answer);
 		}
-console.log('answer',answer)
+
 		message = otherAnswers.get(answer);
 		firstName = invitee.get('firstName');
 

@@ -2,6 +2,7 @@
 
 var Application = require('sniffy/app')['default'];
 var Router = require('sniffy/router')['default'];
+import Ember from 'ember';
 
 export default function startApp(attrs) {
   var App;

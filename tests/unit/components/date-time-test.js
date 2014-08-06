@@ -3,13 +3,9 @@
 import { test, moduleForComponent } from 'ember-qunit';
 import Ember from 'ember';
 
-moduleForComponent('date-time', 'DateTimeComponent', {
-    // needs: ['component:foo', 'helper:bar']
-});
+moduleForComponent('date-time', 'DateTimeComponent');
 
 test('it renders', function() {
-    expect(2);
-
     // creates the component instance
     var component = this.subject();
     equal(component.state, 'preRender');
@@ -21,8 +17,6 @@ test('it renders', function() {
 });
 
 test('has some defaults', function() {
-    expect(12);
-
     var component = this.subject();
     
     equal(component.format, 'LL', 'Default DateTime format should be "LL"');
@@ -49,8 +43,6 @@ test('has some defaults', function() {
 });
 
 test('can be created with a given datetime and format', function() {
-    expect(2);
-
     var value = new Date(1403496074900);
     var format = 'LL';
     var component = this.subject({
@@ -65,8 +57,6 @@ test('can be created with a given datetime and format', function() {
 
 
 test('DateTime can auto update in relative mode', function() {
-    expect(3);
-
     var component = this.subject({
         type: 'relative',
         value: new Date(0)

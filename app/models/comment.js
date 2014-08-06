@@ -4,6 +4,7 @@ import DS from 'ember-data';
 
 var attr = DS.attr;
 var belongsTo = DS.belongsTo;
+var m = moment;
 
 export default DS.Model.extend({
 
@@ -11,11 +12,12 @@ export default DS.Model.extend({
 	body: attr('string'),
 	createdOn: attr('date', {
 		defaultValue: function() {
-			return moment.utc().toDate();
+			return m.utc().toDate();
 		}
 	}),
 
 	// Relationship
 	sniffy: belongsTo('sniffy', { async: true }),
-	user: belongsTo('user', { async: true })
+	user: belongsTo('user', { async: true }),
+
 });

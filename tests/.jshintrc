@@ -10,6 +10,7 @@
     "console",
     "equal",
     "notEqual",
+    "propEqual",
     "notStrictEqual",
     "test",
     "asyncTest",

@@ -29,5 +29,8 @@
     "firebase-cli": "^1.0.6",
     "glob": "^3.2.9",
     "originate": "0.1.5"
+  },
+  "dependencies": {
+    "emberfire": "^1.0.13"
   }
 }

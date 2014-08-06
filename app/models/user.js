@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import computeHandle from '../utils/compute-handle';
 
 var attr = DS.attr;
 var hasMany = DS.hasMany;
@@ -41,13 +42,14 @@ export default DS.Model.extend({
 	computeHandle: function() {
 		var firstName = this.getWithDefault('firstName', '');
 		var lastName = this.getWithDefault('lastName', '');
-		var name = firstName.charAt(0) + lastName.charAt(0);
-		var handle = name ? name.toUpperCase() : null;
+		var handle = computeHandle(firstName, lastName);
 
 		return handle;
 	},
 	updateHandle: function() {
-		this.set('handle', this.computeHandle());
+		var handle = this.computeHandle();
+
+		this.set('handle', handle);
 	}
 
 });

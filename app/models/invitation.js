@@ -7,20 +7,20 @@ var belongsTo = DS.belongsTo;
 var readOnly = Ember.computed.readOnly;
 
 var otherAnswers = Ember.Map.create();
-otherAnswers.set(Answer.ACCEPT, '%@ is going');
-otherAnswers.set(Answer.DECLINE, '%@ is not going');
-otherAnswers.set(Answer.IGNORE, '%@ is ignoring');
+otherAnswers.set(Answer.ACCEPT.toString(), '%@ is going');
+otherAnswers.set(Answer.DECLINE.toString(), '%@ is not going');
+otherAnswers.set(Answer.IGNORE.toString(), '%@ is ignoring');
 
 var selfAnswers = Ember.Map.create();
-selfAnswers.set(Answer.ACCEPT, 'You are going');
-selfAnswers.set(Answer.DECLINE, 'You are not going');
-selfAnswers.set(Answer.IGNORE, 'You are ignoring');
+selfAnswers.set(Answer.ACCEPT.toString(), 'You are going');
+selfAnswers.set(Answer.DECLINE.toString(), 'You are not going');
+selfAnswers.set(Answer.IGNORE.toString(), 'You are ignoring');
 
 export default DS.Model.extend({
 
 	// Attributes
 	answer: attr('answer', {
-		defaultValue: Answer.IGNORE
+		defaultValue: Answer.IGNORE.toString()
 	}),
 	createdOn: attr('date', {
 		defaultValue: function() {
@@ -35,18 +35,16 @@ export default DS.Model.extend({
 	// Computed Properties
 	host: readOnly('sniffy.host'),
 	answerText: function() {
-		var answer = this.get('answer');
+		var answer = this.get('answer').toString();
 		var invitee = this.get('invitee');
 		var user = this.get('store.session.user');
-		var firstName;
-		var message;
 
 		if (user === invitee) {
 			return selfAnswers.get(answer);
 		}
 
-		message = otherAnswers.get(answer);
-		firstName = invitee.get('firstName');
+		var message = otherAnswers.get(answer);
+		var firstName = invitee.get('firstName');
 
 		return message.fmt(firstName);
 	}.property('answer', 'user', 'store.session.user')

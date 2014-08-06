@@ -18,9 +18,6 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 // Javascript
-app.import('vendor/ember-data/ember-data.js');
-app.import('vendor/firebase/firebase.js');
-app.import('vendor/emberfire/dist/emberfire.js');
 app.import('vendor/momentjs/moment.js');
 app.import('vendor/ember-validations/index.js');
 app.import('vendor/drop/drop.js');

@@ -1,11 +1,12 @@
+import Ember from 'ember';
 import { test, moduleForModel } from 'ember-qunit';
 
 moduleForModel('invitation', 'Invitation', {
-	needs: ['model:user', 'model:sniffy', 'model:comment', 'enum:answer']
+	needs: ['model:user', 'model:sniffy', 'model:comment', 'enum:answer', 'transform:answer'/*, 'serializer:application', 'adapter:application'*/]
 });
 
 test('it exists and has some defaults', function() {
-	// expect(2);
+	expect(3);
 
 	var model = this.subject();
 	var Answer = this.container.resolve('enum:answer');
@@ -23,11 +24,16 @@ test('an invitation can have different answer', function() {
 
 	var store = this.store();
 	var Answer = this.container.resolve('enum:answer');
+	var sniffy;
 	var karl;
 	var francis;
 
 	Ember.run(function() {
 		karl = store.createRecord('user', {
+			firstName: 'Karl',
+			lastName: 'Guillotte'
+		});
+		sniffy = store.createRecord('sniffy', {
 			firstName: 'Karl',
 			lastName: 'Guillotte'
 		});
@@ -39,7 +45,7 @@ test('an invitation can have different answer', function() {
 	ok(model);
 
 	equal(model.get('answerText'), 'Karl is ignoring', 'Karl should be ignoring.');
-
+	
 	Ember.run(function() {
 		model.set('answer', Answer.ACCEPT);
 	});
@@ -51,10 +57,6 @@ test('an invitation can have different answer', function() {
 	});
 
 	equal(model.get('answerText'), 'Karl is not going', 'Karl should not be going.');
-
-
-
-
 
 
 	// TODO We should not need to do that...another invitation should be created instead. 

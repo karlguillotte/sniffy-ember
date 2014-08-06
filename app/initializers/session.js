@@ -6,7 +6,9 @@ export default {
 	initialize: function(container, application) {
 		var store = container.lookup('store:main');
 		// TODO Should be using a real session from a plugin
-		var session = Ember.Object.create();
+		var session = Ember.Object.create({
+			user: null
+		});
 		
 		application.register('session:main', session, { instantiate: false });
 		application.inject('controller', 'session', 'session:main');

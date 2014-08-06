@@ -8,7 +8,6 @@ export default DS.Transform.extend({
 		return Answer[serialized.toUpperCase()];
 	},
 	serialize: function(deserialized) {
-
 		return deserialized.get('name').toLowerCase();
 	}
 });

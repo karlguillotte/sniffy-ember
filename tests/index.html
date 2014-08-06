@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/sniffy.css">
-    <link rel="stylesheet" href="assets/qunit.css">
+    <link rel="stylesheet" href="assets/test-support.css">
     <style>
       #ember-testing-container {
         position: absolute;
@@ -23,7 +23,6 @@
         overflow: auto;
         z-index: 9999;
         border: 1px solid #ccc;
-        display: none;
       }
       #ember-testing {
         zoom: 50%;
@@ -38,8 +37,7 @@
       window.SniffyENV = {{ENV}};
       window.EmberENV = window.SniffyENV.EmberENV;
     </script>
-    <script src="assets/qunit.js"></script>
-    <script src="assets/qunit-notifications.js"></script>
+    <script src="assets/test-support.js"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/sniffy.js"></script>
     <script src="testem.js"></script>

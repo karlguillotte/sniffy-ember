@@ -4,9 +4,9 @@
     "handlebars": "~1.3.0",
     "jquery": "~2.1.1",
     "qunit": "~1.12.0",
-    "ember-qunit": "~0.1.5",
-    "ember": "1.5.1",
-    "ember-resolver": "~0.1.1",
+    "ember-qunit": "~0.1.8",
+    "ember": "1.6.1",
+    "ember-resolver": "~0.1.5",
     "loader": "stefanpenner/loader.js#1.0.0",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.2",
     "ember-load-initializers": "stefanpenner/ember-load-initializers#0.0.2",
@@ -16,6 +16,6 @@
     "momentjs": "~2.6.0",
     "ember-validations": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/canary/ember-validations.js",
     "ember-simple-auth": "~0.5.0",
-    "drop": "https://github.com/HubSpot/drop/archive/v0.5.4.zip"
+    "drop": "https://github.com/HubSpot/drop/archive/v0.5.4.zip"  
   }
 }
